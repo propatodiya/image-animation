@@ -1,0 +1,29 @@
+<nav #navbar class="navbar navbar-expand-lg navbar-fixed">
+  <div class="container-fluid p-0">
+    <div class="navbar-wrapper">
+      <div class="navbar-minimize">
+        <a class="navbar-brand" href="javascript:void(0)">
+          Animation
+          <!-- <img src="./../../assets/images/fl-logo.svg"> -->
+        </a>
+      </div>
+    </div>
+    <div class="navbar-wrapper" *ngIf="socialUser.token">
+      <div class="navbar-minimize">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="user-dp">
+                <img *ngIf="(socialUser && socialUser.image); else image" [src]="socialUser.image" />
+                <ng-template #image class="user-name-placeholder">User</ng-template>
+              </span> {{socialUser.name}} <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="javascript:void(0)" (click)="logout()">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,89 @@
+//
+// Modals
+// Material Design element Dialogs
+// --------------------------------------------------
+.modal-dialog {
+  & .modal-content {
+    @include box-shadow-default();
+    border-radius: $border-radius-large;
+    border: none;
+  }
+
+  // Modal header
+  // Top section of the modal w/ title and dismiss
+  .modal-header {
+    border-bottom: none;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-left: 15px;
+
+    .modal-title {
+      text-align: center;
+      width: 100%;
+    }
+
+    .mat-button.close {
+      cursor: pointer;
+      padding: 0;
+      margin: 0 0 0 auto;
+      min-width: auto;
+      line-height: inherit;
+    }
+  }
+
+  // Modal body
+  // Where all modal content resides (sibling of .modal-header and .modal-footer)
+  .modal-body {
+    padding: 15px;
+  }
+
+  // Footer (for actions)
+  .modal-footer {
+    border-top: none;
+    padding: 15px;
+  }
+
+  .modal-body+.modal-footer {
+    padding-top: 0;
+  }
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.91);
+
+  &.show {
+    opacity: 0.5;
+  }
+}
+
+.modal {
+  .modal-dialog {
+    margin-top: 100px;
+  }
+
+  .modal-header .close {
+    color: $gray-light;
+    border: 0px;
+    font-size: 20px;
+    opacity: 0.6;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    i {
+      font-size: 16px;
+    }
+  }
+}
+
+.modal-small {
+  width: 300px;
+  margin: 0 auto;
+
+  .modal-body {
+    margin-top: 20px;
+  }
+}

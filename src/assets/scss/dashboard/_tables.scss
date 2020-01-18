@@ -1,0 +1,78 @@
+.table {
+  >thead>tr>th {
+    border-bottom-width: 1px;
+    font-size: $font-size-h5;
+    font-weight: $font-weight-light;
+  }
+
+  >thead>tr:first-child>th {
+    border-top: none;
+  }
+
+  .tab-pane & {
+    tbody>tr>td:first-child {
+      width: 36px;
+    }
+  }
+
+  .radio,
+  .checkbox {
+    margin-top: -1px;
+    margin-bottom: 0;
+    padding: 0;
+    width: 15px;
+
+    .icons {
+      position: relative;
+    }
+  }
+
+  >thead>tr>th,
+  >tbody>tr>th,
+  >tfoot>tr>th,
+  >thead>tr>td,
+  >tbody>tr>td,
+  >tfoot>tr>td {
+    padding: 12px 8px;
+    vertical-align: middle;
+  }
+
+  .th-description {
+    max-width: 150px;
+  }
+
+  .td-price {
+    font-size: 26px;
+    font-weight: $font-weight-light;
+    margin-top: 5px;
+    text-align: right;
+  }
+
+  .td-total {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-h5;
+    padding-top: 14px;
+    text-align: right;
+  }
+
+  .td-actions .btn {
+    margin: 0px;
+    padding: 5px;
+  }
+
+  >tbody>tr {
+    position: relative;
+  }
+
+  .flag {
+    img {
+      max-width: 18px;
+      margin-top: -2px;
+    }
+  }
+}
+
+.table-view {
+  overflow: auto;
+  display: flex;
+}

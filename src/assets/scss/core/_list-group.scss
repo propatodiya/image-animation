@@ -1,0 +1,64 @@
+.list-group {
+  @if $enable-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  flex-grow: 1;
+  padding: .5rem 0;
+  // dense size variation
+  &.bmd-list-group-sm {
+    padding: .25rem 0;
+
+    .list-group-item {
+      padding: .5rem 1rem;
+    }
+  }
+}
+
+.bmd-list-group-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.list-group-item {
+  @if $enable-flex {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  } @else {
+    display: block;
+  }
+  padding: 1rem;
+  line-height: 1;
+
+  .list-group-item-text {
+    min-width: 0;
+    max-height: 2.188rem; // 88dp tile total height
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  //------
+  // NOTE: there are many variations of icons/labels in a list, each one of these rules exist for a reason.
+  // first icon/label on the left
+  :first-child {
+    margin-right: 2rem; // single line icon is 72dp to text (16 pad + 24 icon + 32 margin)
+  }
+
+  // second icon/label, or only icon/label marked as 'pull-*-right', or any direct child element marked as right
+  > .pull-xs-right,
+  > .pull-sm-right,
+  > .pull-md-right,
+  > .pull-lg-right,
+  > .pull-xl-right,
+  > * ~ .label:last-child {
+    margin-right: 0; // some variations actually match the first-child
+    margin-left: auto;
+  }
+  .list-group-item-text {
+    font-size: .875rem;
+    color: $gray;
+  }
+}

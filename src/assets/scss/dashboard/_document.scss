@@ -1,0 +1,501 @@
+.document-container {
+  .document-menu-list {
+    ul.document-bucket {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0px;
+
+      li.document-bucket-li {
+        margin: 10px;
+        display: inline-flex;
+
+        button.mat-button {
+          font-family: $font-lato-medium;
+          border-width: 1px;
+          border-style: solid;
+          box-shadow: none;
+          padding: 8px 20px;
+          margin: 0 auto;
+          min-width: 130px;
+
+          .budge {
+            position: absolute;
+            top: -10px;
+            right: 0;
+            background: $white;
+            color: $brand-primary-text;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 1px solid $brand-primary-text;
+            white-space: nowrap;
+            display: block;
+            text-align: center;
+            line-height: 24px;
+          }
+
+          &.bucket-active {
+            background: $brand-secoundry;
+            border-color: $brand-secoundry;
+            color: $white;
+
+            .budge {
+              border-color: $brand-secoundry;
+              color: $brand-secoundry;
+            }
+
+            &:active:focus {
+              background: $brand-secoundry;
+              border-color: $brand-secoundry;
+              color: $white;
+            }
+          }
+        }
+
+        &:first-child {
+          margin-left: 0px;
+        }
+
+        &:last-child {
+          margin-right: 0px;
+        }
+
+        .document-menu {
+          ul {
+            li {
+              a {
+                display: flex;
+
+                span.doc-icon {
+                  display: inline-flex;
+                  background: #fff;
+                  padding: 5px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                  justify-content: center;
+                  align-items: center;
+                  width: 25px;
+                  height: 25px;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+
+                span.doc-name {
+                  display: inline-flex;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    button.mat-raised-button.btn-just-icon {
+      margin: 0 auto;
+      height: 38px;
+      min-width: 38px;
+      width: 38px;
+      line-height: 38px;
+      background: $white;
+      @include box-shadow(0px 1px 6px rgba(0, 0, 0, 0.16));
+
+      i.fa {
+        color: $brand-primary-text;
+      }
+
+      &:hover {
+        @include box-shadow-default();
+      }
+    }
+  }
+
+  .document-check-list {
+    display: flex;
+    overflow: auto;
+    height: 100%;
+
+    .documentlist {
+      display: block;
+      width: 100%;
+      min-width: 767px;
+      padding: 0px 15px;
+
+      .document-list-head {
+        margin: 0px -15px;
+        background: $brand-primary;
+        color: $white;
+
+        ul {
+          li {
+            .docx-title {
+              font-family: $font-lato-semibold;
+              display: block;
+              line-height: 1.5em;
+              padding: 4px 0px;
+              white-space: normal;
+              word-break: break-word;
+              position: relative;
+            }
+          }
+        }
+      }
+
+      & [role="tablist"] {
+        margin: 0px -15px;
+      }
+
+      [role="tabpanel"] {
+        z-index: 1;
+        position: relative;
+
+        .document-list-body {
+          display: block;
+          width: 100%;
+          position: relative;
+          min-width: 767px;
+          padding: 0px;
+
+          ul {
+            li {
+              .docx-body {
+                display: flex;
+                position: relative;
+                flex: 1;
+                flex-wrap: wrap;
+                word-break: break-all;
+                color: $brand-inverse;
+
+                .document-label {
+                  display: block;
+                  flex: 1;
+
+                  label {
+                    margin: 0 auto;
+                    line-height: normal;
+                    font-family: $font-lato-medium;
+                  }
+                }
+
+                .document-reassigned {
+                  display: block;
+                  cursor: pointer;
+                  position: absolute;
+                  right: -5px;
+                  top: calc(50% - 10px);
+                  opacity: 0.7;
+
+                  img {
+                    width: 15px;
+                    height: 15px;
+                  }
+
+                  .reassigned-tooltip {
+                    transform: scaleX(0) scaleY(0);
+                    z-index: -1;
+                    position: absolute;
+                    width: auto;
+                    right: calc(50% - 52px);
+                    background: $brand-inverse;
+                    color: #fff;
+                    border-radius: 40px;
+                    padding: 4px 10px;
+                    white-space: nowrap;
+                    top: calc(100% + 7px);
+                    cursor: default;
+                    text-transform: initial;
+                    line-height: 22px;
+                    @include box-shadow-default();
+                    @include transition-all(0.2s, ease-in-out);
+
+                    &::after {
+                      content: "";
+                      position: absolute;
+                      width: 0;
+                      height: 0;
+                      border-left: 5px solid transparent;
+                      border-right: 5px solid transparent;
+                      border-bottom: 5px solid $brand-inverse;
+                      top: -5px;
+                      right: calc(50% - 11px);
+                    }
+
+                    label {
+                      margin: 0 auto;
+                    }
+                  }
+
+                  &:hover {
+                    .reassigned-tooltip {
+                      transform: scaleX(1) scaleY(1);
+                      z-index: 0;
+                    }
+                  }
+                }
+
+                .document-file-name {
+                  color: rgb(73, 122, 147);
+
+                  &:hover {
+                    color: rgb(113, 192, 181);
+                  }
+                }
+
+                .document-action {
+                  .btn.mat-button {
+                    white-space: nowrap;
+                    margin: 2px auto;
+
+                    &:last-child {
+                      margin-left: 5px;
+                    }
+                  }
+                }
+
+                span {
+                  flex: 1;
+                  display: block;
+                  min-width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .document-list-head,
+      [role="tabpanel"] .document-list-body {
+        ul {
+          display: flex;
+          margin: 0;
+          padding: 0;
+          background: inherit;
+          color: inherit;
+          table-layout: fixed;
+          width: 100%;
+          padding: 0px 15px;
+
+          li {
+            display: inline-flex;
+            padding: 10px;
+            cursor: pointer;
+            vertical-align: top;
+            flex: 1;
+            flex-direction: column;
+
+            &:last-child {
+              text-align: center;
+              justify-content: center;
+              padding-right: 0px;
+            }
+          }
+        }
+      }
+
+      .document-list-head {
+        ul {
+          li {
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+
+    .document-pending {
+      display: block;
+      padding: 0px 15px;
+      width: 100%;
+      border-top: 1px solid $light-white;
+
+      .pending-box {
+        padding: 0px 15px;
+
+        .doc-pending-card {
+          box-shadow: 0 0px 0px 1px rgb(244, 244, 244);
+          border-radius: 4px;
+          height: 100%;
+
+          .doc-pending-header {
+            border-radius: 4px 4px 0 0;
+            display: block;
+            padding: 5px 15px;
+            background: $brand-primary;
+            color: $white;
+
+            .doc-title {
+              padding: 5px 5px 5px 15px;
+            }
+
+            .doc-select-all {
+              padding: 0px 10px;
+
+              .btn.mat-button {
+                border: 1px solid #fff;
+                white-space: nowrap;
+                padding: 5px 20px;
+              }
+            }
+          }
+
+          .doc-pending-body {
+            border-radius: 0 0 4px 4px;
+            display: block;
+            overflow: auto;
+            padding: 0px 15px;
+
+            .doc-pending-box {
+              .pending-title {
+                display: block;
+                padding: 7px 0px;
+                color: $brand-primary;
+                font-family: $font-lato-medium;
+                position: relative;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  height: calc(100% - 4px);
+                  width: 3px;
+                  background: $brand-primary;
+                  top: 2px;
+                  left: -15px;
+                }
+
+                .no-Docx {
+                  color: $brand-danger;
+                }
+              }
+
+              .doc-pending-list {
+                ul {
+                  list-style: none;
+                  margin: 0 auto;
+                  padding: 0;
+                  table-layout: fixed;
+                  width: 100%;
+
+                  li {
+                    border-collapse: collapse;
+                    margin: 0;
+                    padding: 0;
+                    table-layout: initial;
+                    min-width: auto;
+                    display: block;
+                    cursor: pointer;
+
+                    .form-check {
+                      .form-check-label {
+                        color: $brand-primary-text;
+                        cursor: pointer;
+                        padding-right: inherit;
+                        display: block;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        position: relative;
+                        padding-left: 32px;
+
+                        span.form-check-sign {
+                          left: -1px;
+                          top: calc(50% - 10px);
+
+                          &::before {
+                            top: -1px;
+                            left: -1px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .horizontal-line {
+              height: 1px;
+              width: 100%;
+              border-top: 1px solid #f4f4f4;
+              display: block;
+              margin: 5px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .document-view-model {
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: -100vw;
+    background: $white;
+    height: 100vh;
+    width: calc(100vw - 260px);
+    z-index: 120;
+    @include transitions-property(all, 1s, ease-in-out);
+    @include box-shadow-default();
+
+    &.view-model-open {
+      right: 0px;
+    }
+  }
+
+  .dv-card {
+    background: $white;
+    height: 100vh;
+
+    .dv-header,
+    .dv-footer {
+      padding: 15px;
+      padding-right: 55px;
+      height: 50px;
+      position: relative;
+      @include linear-gradient-deg(140deg, rgba(43, 85, 130, 1), rgba(114, 144, 177, 1));
+
+      .doc-name {
+        color: $white;
+        font-family: $font-lato-semibold;
+        white-space: nowrap;
+        display: inline-flex;
+        flex: 0.5;
+        width: 50%;
+        align-items: center;
+
+        .doc-icon {
+          display: inline-block;
+          width: 15px;
+          margin-right: 10px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        span {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .doc-close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        border-radius: 3px;
+        cursor: pointer;
+
+        span {
+          height: 40px;
+          width: 40px;
+        }
+      }
+    }
+  }
+}

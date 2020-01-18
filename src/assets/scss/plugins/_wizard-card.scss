@@ -1,0 +1,109 @@
+.card-wizard {
+  @include box-shadow-default();
+  @include transition($general-transition-time, $transition-linear);
+  padding: 15px;
+
+  &.active {
+    opacity: 1;
+  }
+
+  .card-body {
+    min-height: 410px;
+    overflow: hidden;
+  }
+
+  .wizard-navigation {
+    position: relative;
+    margin: 0px -15px;
+  }
+
+  .moving-tab {
+    position: absolute;
+    opacity: 0;
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    top: -2px;
+    left: 0px;
+    width: 0px;
+    border-radius: 4px;
+    color: $white;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1);
+  }
+
+  &[data-color="primary"] {
+    @include set-wizard-color($brand-primary);
+  }
+
+  &[data-color="green"] {
+    @include set-wizard-color($brand-success);
+  }
+
+  &[data-color="blue"] {
+    @include set-wizard-color($brand-info);
+  }
+
+  &[data-color="orange"] {
+    @include set-wizard-color($brand-warning);
+  }
+
+  &[data-color="red"] {
+    @include set-wizard-color($brand-danger);
+  }
+
+  &[data-color="rose"] {
+    @include set-wizard-color($brand-rose);
+  }
+
+
+  .nav-pills {
+    background-color: rgba(200, 200, 200, 0.2);
+
+    >li+li {
+      margin-left: 0;
+    }
+
+    >li>a {
+      border: 0;
+      border-radius: 0;
+      line-height: 18px;
+      font-size: 12px;
+      font-weight: 500;
+      min-width: 100px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    >li.active>a,
+    >li.active>a:hover,
+    >li.active>a:focus,
+    >li>a:hover,
+    >li>a:focus {
+      background-color: inherit;
+      box-shadow: none;
+    }
+
+    >li i {
+      display: block;
+      font-size: 30px;
+      padding: 15px 0;
+    }
+  }
+
+  .nav-pills:not(.flex-column) .nav-item+.nav-item:not(:first-child) {
+    margin-left: 0;
+  }
+
+  .nav-item .nav-link.active,
+  .nav-item .nav-link:hover,
+  .nav-item .nav-link:focus {
+    background-color: inherit;
+    box-shadow: none;
+    color: inherit;
+  }
+}

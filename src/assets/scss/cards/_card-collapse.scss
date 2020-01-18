@@ -1,0 +1,103 @@
+.card-collapse,
+.card-collapse .card-header {
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.card-collapse {
+  margin: 0;
+
+  & .card-header {
+    border: 0px;
+    margin: 0;
+    padding: 0px;
+    box-shadow: none;
+    background: $white;
+
+    a.card-link {
+      display: block;
+      cursor: pointer;
+      padding: 10px 25px 10px 40px;
+      position: relative;
+      color: $brand-slight-black;
+      font-size: inherit;
+      border-bottom: 1px solid $light-white;
+      background: $white;
+
+      .card-link-title {
+        color: $brand-primary;
+
+        span.accordion-arrow {
+          position: absolute;
+          left: 20px;
+          top: calc(50% - 7px);
+
+          i.caret {
+            display: block;
+            border: solid $brand-primary;
+            border-width: 0 2px 2px 0;
+            border-radius: 0px;
+          }
+        }
+
+        span.document-title {
+          font-family: $font-lato-semibold;
+        }
+
+        span.document-count {
+          float: right;
+        }
+      }
+
+      &[aria-expanded='false'],
+      &.collapsed {
+        .card-link-title {
+          span.accordion-arrow {
+            top: calc(50% - 7px);
+
+            i.caret {
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+
+      &[aria-expanded='true'] {
+        .card-link-title {
+          span.accordion-arrow {
+            top: calc(50% - 3px);
+
+            i.caret {
+              -webkit-transform: rotate(-135deg);
+              transform: rotate(-135deg);
+            }
+          }
+        }
+      }
+
+      .card-link-desc {
+        color: $brand-primary-text;
+        font-style: italic;
+        font-size: 80%;
+      }
+
+      &:hover,
+      &:active,
+      &[aria-expanded="true"] {
+        color: $brand-primary;
+        background: $light-white;
+      }
+    }
+  }
+}
+
+.card-wizard {
+  .card-collapse {
+    .panel-body {
+      min-height: auto;
+      padding: 15px;
+    }
+  }
+}

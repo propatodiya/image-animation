@@ -1,0 +1,209 @@
+// Menus https://www.google.com/design/spec/components/menus.html#menus-specs
+// Dropdown buttons (mobile and desktop) https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons
+.dropdown {
+  position: relative;
+
+  .left-auto {
+    left: auto;
+  }
+
+  .right-0 {
+    right: 0px;
+  }
+
+  .right-auto {
+    right: auto;
+  }
+
+  .left-0 {
+    left: 0px;
+  }
+
+  .drop-width.dropdown-menu {
+    min-width: 170px;
+  }
+}
+
+.dropdown-menu {
+  padding: $bmd-dropdown-margin-y 0;
+  border: 0;
+  opacity: 0;
+  margin: 0 auto;
+  transform: scale(0);
+  will-change: transform, opacity;
+  transition: transform $bmd-menu-expand-duration $bmd-animation-curve-default, opacity $bmd-menu-fade-duration $bmd-animation-curve-default;
+  background: $white;
+  list-style: none;
+  z-index: 70;
+  top: calc(100% + 4px);
+  transform-origin: top center;
+  @include box-shadow-default();
+
+  &.showing {
+    animation-name: bmd-dropdown-animation;
+    animation-duration: $bmd-menu-expand-duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: $bmd-animation-curve-default;
+  }
+
+  .open>&,
+  &.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &.hiding {
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  // &[x-placement="bottom-start"] {
+  //   transform-origin: 0 0;
+  // }
+
+  // &[x-placement="bottom-end"] {
+  //   transform-origin: 100% 0;
+  // }
+
+  // &[x-placement="top-start"] {
+  //   transform-origin: 0 100%;
+  // }
+
+  // &[x-placement="top-end"] {
+  //   transform-origin: 100% 100%;
+  // }
+
+  .disabled>a {
+    color: $bmd-dropdown-header-color;
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      background-color: transparent;
+      background-image: none;
+      color: $bmd-dropdown-header-color;
+    }
+  }
+
+  &.dropdown-with-icons .dropdown-item {
+    padding: $dropdown-item-padding-y + 0.125 $dropdown-item-padding-x $dropdown-item-padding-y + 0.125 $dropdown-item-padding-y + 0.125;
+  }
+
+  .dropdown-item,
+  li>a {
+    position: relative;
+    width: auto;
+    padding: 10px 15px;
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    color: $bmd-dropdown-link-color;
+    font-weight: normal;
+    text-decoration: none;
+    min-width: $bmd-menu-item-min-width;
+    overflow: hidden;
+    line-height: $bmd-line-height;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus,
+  a:hover,
+  a:focus,
+  a:active {
+    background-color: $brand-primary;
+    color: $white;
+  }
+}
+
+// this could be in a .btn-group or .dropdown
+.dropdown-toggle {
+
+  &.bmd-btn-icon,
+  &.bmd-btn-fab {
+
+    // remove the dropdown icon
+    &::after {
+      display: none;
+    }
+
+    ~.dropdown-menu {
+
+      &.dropdown-menu-top-left,
+      &.dropdown-menu-top-right {
+        bottom: $bmd-btn-icon-size; // push up the bottom of the menu the height of the button
+      }
+    }
+  }
+
+  &:after {
+    will-change: transform;
+    transition: transform $bmd-animation-dropdown-caret linear;
+  }
+
+  .show &:after {
+    @include rotate-180();
+  }
+
+  &.bmd-btn-fab-sm {
+    ~.dropdown-menu {
+
+      &.dropdown-menu-top-left,
+      &.dropdown-menu-top-right {
+        bottom: $bmd-btn-fab-size-sm; // push up the bottom of the menu the height of the button
+      }
+    }
+  }
+
+  &.bmd-btn-icon {
+    ~.dropdown-menu {
+      // collapse some spacing
+      margin: 0;
+    }
+  }
+}
+
+.dropdown-header {
+  font-size: 0.75rem;
+  padding-top: $dropdown-header-padding-y;
+  padding-bottom: $dropdown-header-padding-y;
+  text-transform: none;
+  color: $bmd-dropdown-header-color;
+  line-height: $bmd-line-height;
+  font-weight: inherit;
+}
+
+@keyframes bmd-dropdown-animation {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.dropdown-menu.bootstrap-datetimepicker-widget {
+  opacity: 0;
+  transform: scale(0);
+  transition-duration: $bmd-menu-expand-duration;
+  transition-timing-function: $bmd-animation-curve-default;
+  transform-origin: 0 0;
+  will-change: transform, opacity;
+  top: 0;
+}
+
+.dropdown-menu.bootstrap-datetimepicker-widget.top {
+  transform-origin: 0 100%;
+}
+
+.dropdown-menu.bootstrap-datetimepicker-widget.open {
+  opacity: 1;
+  transform: scale(1);
+  top: 0;
+}
