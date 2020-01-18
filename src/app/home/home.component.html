@@ -1,6 +1,6 @@
 <!-- <app-navbar></app-navbar> -->
 <div class="main-panel">
-  <div class="panel-header"  *ngIf="googleAlbum.length !== 0">
+  <div class="panel-header" *ngIf="googleAlbum.length !== 0">
     <div class="row">
       <div class="col">
         <div class="selected-info">
@@ -93,6 +93,9 @@
             <div class="swiper-slide" *ngFor="let image of selectedPic; let i = index" [ngStyle]="{'background-image': 'url(' + image + ')' }"></div>
           </div>
           <div class="actions">
+            <div class="audio-control">
+              <span>Audio Control</span>
+            </div>
             <div class="action-list">
               <ul>
                 <li>

@@ -187,6 +187,11 @@
 }
 
 .actions {
+  background: #fff;
+  color: #000;
+  margin-top: 10px;
+  border-radius: 3px;
+
   .action-list {
     padding: 10px 0px;
 
@@ -194,7 +199,6 @@
       padding: 0;
       margin: 0 auto;
       list-style: none;
-      color: #fff;
       display: flex;
       justify-content: center;
 
@@ -209,4 +213,9 @@
       }
     }
   }
+}
+
+.audio-control {
+  padding: 20px 0px 0px 10px;
+  text-decoration: underline;
 }
