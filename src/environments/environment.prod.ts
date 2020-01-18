@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  GOOGLEPHOTO: 'https://content-photoslibrary.googleapis.com/v1'
 };
